@@ -28,10 +28,11 @@ class Checkout
   def price_counting_of_hash(hash)
     price = item_A_price(hash) + normal_price(hash, "C",20) +
     normal_price(hash, "D",15) + normal_price(hash, "E",40) + item_F_price(hash)
+    + item_B_price(hash)
     hash.each do |item , time |
       # price += ((time/5)*200 + ((time%5)/3)*130 + (time - (time/5)*5 -(((time - (time/5)*5)/3)*3))*50) if item == "A"
-      price += (((time-number_of_E(hash)/2)/2)*45 + ((time-number_of_E(hash)/2)%2)*30) if (item == "B" && time > 0)
-      # price += time*20 if item == "C"
+      # price += (((time-number_of_E(hash)/2)/2)*45 + ((time-number_of_E(hash)/2)%2)*30) if (item == "B" && time > 0)
+      # # price += time*20 if item == "C"
       # price += time*15 if item == "D"
       # price += (time*40) if item == "E"
       # price += time/3*20 +(time-time/3*3)*10 if (item == "F" && time >=3 )
@@ -59,5 +60,11 @@ class Checkout
     return  rep*10 if  rep < 3
   end
 
+  def item_B_price(hash)
+    rep = hash["B"]
+    return (((rep-number_of_E(hash)/2)/2)*45 + ((rep-number_of_E(hash)/2)%2)*30) if rep > 0
+    return 0
+  end
 end
+
 
