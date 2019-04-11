@@ -9,8 +9,6 @@ require_solution 'CHK'
 class ClientTest < Minitest::Test
 
   def test_checkout
-    assert_equal 50 , Checkout.new.checkout("A"), "The price of A is 50"
+    assert_equal 50 , Checkout.new.checkout("A")
   end
 end
-
-

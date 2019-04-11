@@ -6,4 +6,3 @@ class Checkout
   end
 
 end
-
