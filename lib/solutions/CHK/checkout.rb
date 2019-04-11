@@ -2,8 +2,7 @@
 class Checkout
 
   def checkout(skus)
-    if bool return -1
-
+    return -1 if not_proper(skus)
 
   end
   private
@@ -18,5 +17,6 @@ class Checkout
   end
 
 end
+
 
 
