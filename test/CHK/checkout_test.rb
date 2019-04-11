@@ -11,7 +11,9 @@ class ClientTest < Minitest::Test
   def test_checkout
     assert_equal -1 , Checkout.new.checkout("abc")
     assert_equal 115, Checkout.new.checkout("ABCD")
+    assert_equal  255  ,Checkout.new.checkout("AAAABBB")
   end
 end
+
 
 
