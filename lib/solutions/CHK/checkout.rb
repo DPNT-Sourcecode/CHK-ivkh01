@@ -12,13 +12,13 @@ class Checkout
     letters = skus.chars
     bool = false
     letters.each do |letter|
-      bool = true if !(["A","B","C","D"].include?(letter))
+      bool = true if !(["A","B","C","D","E"].include?(letter))
     end
     bool
   end
 
   def hash_making_of_string(skus)
-    hash = {"A"=> 0,"B"=> 0, "C"=> 0, "D"=> 0 }
+    hash = {"A"=> 0,"B"=> 0, "C"=> 0, "D"=> 0 , "E" => 0  }
     skus.chars.each do |letter|
       hash[letter]+=1
     end
@@ -39,3 +39,4 @@ class Checkout
 
 
 end
+
