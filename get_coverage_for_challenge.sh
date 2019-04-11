@@ -10,18 +10,30 @@ SCRIPT_CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CHALLENGE_ID=$1
 RUBY_TEST_REPORT_CSV_FILE="${SCRIPT_CURRENT_DIR}/coverage/results.csv"
 RUBY_CODE_COVERAGE_INFO="${SCRIPT_CURRENT_DIR}/coverage.tdl"
+RUBY_CODE_COVERAGE_CACHE="${SCRIPT_CURRENT_DIR}/.resultset.json"
+
+exitAfterNoCoverageReportFoundError() {
+  echo "No coverage report was found"
+  exit -1
+}
+
+if [[ ! -e "${SCRIPT_CURRENT_DIR}/lib/solutions/${CHALLENGE_ID}" ]]; then
+   echo "" > ${RUBY_CODE_COVERAGE_INFO}
+   echo "The provided CHALLENGE_ID: '${CHALLENGE_ID}' isn't valid, aborting process..."
+   exit 1
+fi
 
 ( cd ${SCRIPT_CURRENT_DIR} && \
     bundle install && \
-    bundle exec rake test || true 1>&2 )
+    bundle exec rake 1>&2 || true )
 
-[ -e ${RUBY_CODE_COVERAGE_INFO} ] && rm ${RUBY_CODE_COVERAGE_INFO}
+[[ -e "${RUBY_CODE_COVERAGE_INFO}" ]] && rm -f "${RUBY_CODE_COVERAGE_INFO}" && rm -f "${RUBY_CODE_COVERAGE_CACHE}"
 
-if [ -f "${RUBY_TEST_REPORT_CSV_FILE}" ]; then
+if [[ -f "${RUBY_TEST_REPORT_CSV_FILE}" ]]; then
     TOTAL_COVERAGE_PERCENTAGE=$(( 0 ))
     NUMBER_OF_FILES=$(( 0 ))
 
-    COVERAGE_OUTPUT=$(grep "solutions\/${CHALLENGE_ID}\/" ${RUBY_TEST_REPORT_CSV_FILE} || true)
+    COVERAGE_OUTPUT=$(grep "lib\/solutions\/${CHALLENGE_ID}\/" ${RUBY_TEST_REPORT_CSV_FILE} || true)
     RELEVANT_LINES_COL=4
     LINES_COVERED_COL=5
 
@@ -35,6 +47,5 @@ if [ -f "${RUBY_TEST_REPORT_CSV_FILE}" ]; then
     cat ${RUBY_CODE_COVERAGE_INFO}
     exit 0
 else
-    echo "No coverage report was found"
-    exit -1
+    exitAfterNoCoverageReportFoundError
 fi
