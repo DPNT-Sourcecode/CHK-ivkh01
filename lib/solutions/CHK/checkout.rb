@@ -28,8 +28,8 @@ class Checkout
   def price_counting_of_hash(hash)
     price = 0
     hash.each do |item , time |
-      price += time*50 if item == "A"
-      price += time*30 if item == "B"
+      price += ((time/3)*130 + (time%3)*50) if item == "A"
+      price += ((time/2)*45 + (time%2)*30) if item == "B"
       price += time*20 if item == "C"
       price += time*15 if item == "D"
     end
@@ -39,6 +39,7 @@ class Checkout
 
 
 end
+
 
 
 
