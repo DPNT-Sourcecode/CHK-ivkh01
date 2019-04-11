@@ -62,10 +62,11 @@ class Checkout
 
   def item_B_price(hash)
     rep = hash["B"]
-    return (((rep-number_of_E(hash)/2)/2)*45 + ((rep-number_of_E(hash)/2)%2)*30) if rep> 0
+    return (((rep-number_of_E(hash)/2)/2)*45 + ((rep-number_of_E(hash)/2)%2)*30) if rep>= number_of_E(hash)/2
     return 0
   end
 end
+
 
 
 
