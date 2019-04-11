@@ -12,13 +12,13 @@ class Checkout
     letters = skus.chars
     bool = false
     letters.each do |letter|
-      bool = true if !(["A","B","C","D", "E"].include?(letter))
+      bool = true if !(["A","B","C","D", "E", "F"].include?(letter))
     end
     bool
   end
 
   def hash_making_of_string(skus)
-    hash = {"A"=> 0,"B"=> 0, "C"=> 0, "D"=> 0, "E"=>0 }
+    hash = {"A"=> 0,"B"=> 0, "C"=> 0, "D"=> 0, "E"=>0 , "F" => 0  }
     skus.chars.each do |letter|
       hash[letter]+=1
     end
@@ -33,6 +33,7 @@ class Checkout
       price += time*20 if item == "C"
       price += time*15 if item == "D"
       price += (time*40) if item == "E"
+      price += (time*10) if item == "F"
     end
     price
   end
@@ -42,5 +43,6 @@ class Checkout
   end
 
 end
+
 
 
