@@ -29,10 +29,10 @@ class Checkout
     price = 0
     hash.each do |item , time |
       price += ((time/3)*130 + (time%3)*50) if item == "A"
-      price += (((time-number_of_E(hash)/2)/2)*45 + (time%2)*30) if item == "B"
+      price += (((time-number_of_E(hash)/2)/2)*45 + ((time-number_of_E(hash)/2)%2)*30) if item == "B"
       price += time*20 if item == "C"
       price += time*15 if item == "D"
-      price += (time*40 - time/2 * 30 ) if item == "E"
+      price += (time*40) if item == "E"
     end
     price
   end
@@ -42,6 +42,7 @@ class Checkout
   end
 
 end
+
 
 
 
