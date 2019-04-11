@@ -2,7 +2,10 @@
 class Checkout
 
   def checkout(skus)
-    
-  end
 
+  end
+  private
+
+  
 end
+
