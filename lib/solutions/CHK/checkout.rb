@@ -33,8 +33,8 @@ class Checkout
       price += time*20 if item == "C"
       price += time*15 if item == "D"
       price += (time*40) if item == "E"
-      price += ((time-(time/2))*10) if (item == "F" && item >=3 )
-      price += (time*10) if (item == "F" && item < 3 )
+      price += ((time-(time/2))*10) if (item == "F" && time >=3 )
+      price += (time*10) if (item == "F" && time < 3 )
     end
     price
   end
@@ -44,6 +44,7 @@ class Checkout
   end
 
 end
+
 
 
 
