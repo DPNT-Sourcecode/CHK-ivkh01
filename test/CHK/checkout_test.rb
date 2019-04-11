@@ -21,8 +21,10 @@ class ClientTest < Minitest::Test
     assert_equal 80, Checkout.new.checkout("EE")
     assert_equal 20, Checkout.new.checkout("FF")
     assert_equal 20, Checkout.new.checkout("FFF")
+    assert_equal 60, Checkout.new.checkout("FFFFFFFF")
   end
 end
+
 
 
 
