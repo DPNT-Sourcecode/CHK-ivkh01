@@ -12,7 +12,7 @@ class Checkout
     letters = skus.chars
     bool = false
     letters.each do |letter|
-      bool = true if !(["A","B","C","D", "E", "F","G","H", "I", "J", "K", "L", "M", "N","O"].include?(letter))
+      bool = true if !(["A","B","C","D", "E", "F","G","H", "I", "J", "K", "L", "M", "N","O", "P"].include?(letter))
     end
     bool
   end
@@ -31,7 +31,7 @@ class Checkout
     item_F_price(hash)+ item_B_price(hash) + normal_price(hash, "G", 20)+item_H_price(hash)+
     normal_price(hash, "I",35) +normal_price(hash, "J", 60)+ item_K_price(hash)+
     normal_price(hash, "L", 90)+ item_M_price(hash)+ normal_price(hash, "N", 40)+
-    normal_price(hash, "O", 10)
+    normal_price(hash, "O", 10)+ item_P_price(hash)
 
     # hash.each do |item , time |
     #   # price += ((time/5)*200 + ((time%5)/3)*130 + (time - (time/5)*5 -(((time - (time/5)*5)/3)*3))*50) if item == "A"
@@ -90,7 +90,13 @@ class Checkout
     return 0
   end
 
+  def item_P_price(hash)
+    rep = hash["P"]
+    return (rep/5)*200 - (rep/rep/5*5)*50
+  end
+
 end
+
 
 
 
