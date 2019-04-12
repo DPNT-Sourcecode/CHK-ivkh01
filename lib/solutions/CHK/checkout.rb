@@ -18,7 +18,7 @@ class Checkout
   end
 
   def hash_making_of_string(skus)
-    hash = {"A"=> 0,"B"=> 0, "C"=> 0, "D"=> 0, "E"=>0 , "F" => 0, "G"=> 0   }
+    hash = {"A"=> 0,"B"=> 0, "C"=> 0, "D"=> 0, "E"=>0 , "F" => 0, "G"=> 0 , "H" =>0  }
     skus.chars.each do |letter|
       hash[letter]+=1
     end
@@ -28,7 +28,8 @@ class Checkout
   def price_counting_of_hash(hash)
     price = item_A_price(hash) + normal_price(hash, "C",20) +
     normal_price(hash, "D",15) + normal_price(hash, "E",40) +
-    item_F_price(hash)+ item_B_price(hash) + normal_price(hash, "G", 20)
+    item_F_price(hash)+ item_B_price(hash) + normal_price(hash, "G", 20) +
+    item_H_price(hash)
     # hash.each do |item , time |
     #   # price += ((time/5)*200 + ((time%5)/3)*130 + (time - (time/5)*5 -(((time - (time/5)*5)/3)*3))*50) if item == "A"
     #   # price += (((time-number_of_E(hash)/2)/2)*45 + ((time-number_of_E(hash)/2)%2)*30) if (item == "B" && time > 0)
@@ -65,5 +66,10 @@ class Checkout
     return (((rep-number_of_E(hash)/2)/2)*45 + ((rep-number_of_E(hash)/2)%2)*30) if rep>= number_of_E(hash)/2
     return 0
   end
+
+  def item_H_price(hash)
+    rep = hash["H"]
+    return (rep/10)*80 +(rep - (rep/10)*10)/5*45 + ((rep - (rep/10)*10)- ((rep - (rep/10)*10))/5*5)*10
 end
+
 
