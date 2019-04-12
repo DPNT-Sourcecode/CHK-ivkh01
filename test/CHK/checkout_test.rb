@@ -36,11 +36,8 @@ class ClientTest < Minitest::Test
     assert_equal 110, Checkout.new.checkout("QQQQ")
     assert_equal 50, Checkout.new.checkout("R")
     assert_equal 150, Checkout.new.checkout("RRRQ")
+    assert_equal 30, Checkout.new.checkout("S")
+    assert_equal 20, Checkout.new.checkout("T")
+    assert_equal 120, Checkout.new.checkout("UUUU")
   end
 end
-
-
-
-
-
-
