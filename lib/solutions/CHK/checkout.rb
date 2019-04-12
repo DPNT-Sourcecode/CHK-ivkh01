@@ -120,10 +120,3 @@ class Checkout
     return (rep/3)*130
   end
 end
-
-
-
-
-
-
-
