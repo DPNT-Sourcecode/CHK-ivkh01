@@ -34,7 +34,7 @@ class Checkout
     normal_price(hash, "O", 10)+ item_P_price(hash) + item_Q_price(hash) + normal_price(hash, "R", 50)+
     item_S_price(hash)+ item_T_price(hash)+ item_U_price(hash)+
     item_V_price(hash) + normal_price(hash, "W", 20)+ item_X_price(hash)+
-    item_Y_price(hash)+ normal_price(hash, "Z", 50)
+    item_Y_price(hash)+ item_Z_price(hash)
     price
   end
 
@@ -128,6 +128,12 @@ class Checkout
     return rep/3*45 + (rep - rep/3*3)*20
   end
 
+  def item_Z_price(hash)
+    rep = hash["Z"]
+    return rep/3*45 + (rep - rep/3*3)*21
+  end
+
 
 end
+
 
