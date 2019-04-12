@@ -12,14 +12,13 @@ class Checkout
     letters = skus.chars
     bool = false
     letters.each do |letter|
-      bool = true if !(["A","B","C","D", "E", "F","G","H", "I", "J", "K", "L", "M", "N"].include?(letter))
+      bool = true if !(["A","B","C","D", "E", "F","G","H", "I", "J", "K", "L", "M", "N","O"].include?(letter))
     end
     bool
   end
 
   def hash_making_of_string(skus)
-    hash = {"A"=> 0,"B"=> 0, "C"=> 0, "D"=> 0, "E"=>0 , "F" => 0, "G"=> 0 , "H" =>0, "I" => 0, "J" => 0 , "K" => 0,
-    "L"=> 0 , "M" => 0 , "N" => 0 }
+    hash = {"A"=> 0,"B"=> 0, "C"=> 0, "D"=> 0, "E"=>0 , "F" => 0, "G"=> 0 , "H" =>0, "I" => 0, "J" => 0 , "K" => 0,"L"=> 0 , "M" => 0 , "N" => 0, "O" => 0 }
     skus.chars.each do |letter|
       hash[letter]+=1
     end
@@ -31,7 +30,8 @@ class Checkout
     normal_price(hash, "D",15) + normal_price(hash, "E",40) +
     item_F_price(hash)+ item_B_price(hash) + normal_price(hash, "G", 20)+item_H_price(hash)+
     normal_price(hash, "I",35) +normal_price(hash, "J", 60)+ item_K_price(hash)+
-    normal_price(hash, "L", 90)+ item_M_price(hash)+ normal_price(hash, "N", 40)
+    normal_price(hash, "L", 90)+ item_M_price(hash)+ normal_price(hash, "N", 40)+
+    normal_price(hash, "O", 10)
 
     # hash.each do |item , time |
     #   # price += ((time/5)*200 + ((time%5)/3)*130 + (time - (time/5)*5 -(((time - (time/5)*5)/3)*3))*50) if item == "A"
@@ -91,6 +91,7 @@ class Checkout
   end
 
 end
+
 
 
 
