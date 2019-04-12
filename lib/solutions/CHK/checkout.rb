@@ -53,6 +53,10 @@ class Checkout
     hash["N"]
   end
 
+  def number_of_R(hash)
+    hash["R"]
+  end
+
   def item_A_price(hash)
     rep = hash["A"]
     ((rep/5)*200 + ((rep%5)/3)*130 + (rep - (rep/5)*5 -(((rep - (rep/5)*5)/3)*3))*50)
@@ -96,11 +100,16 @@ class Checkout
   end
 
   def item_Q_price(hash)
-    rep = hash["Q"]
-    return (rep/3)*80 + (rep - rep/3*3)*30
+    rep = hash["Q"] - number_of_R(hash)
+    return (rep/3)*80 + (rep - rep/3*3)*30 if rep> 0
+    return 0
+  end 
+
+
   end
 
 end
+
 
 
 
