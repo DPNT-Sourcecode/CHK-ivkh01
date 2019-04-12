@@ -12,14 +12,13 @@ class Checkout
     letters = skus.chars
     bool = false
     letters.each do |letter|
-      bool = true if !(["A","B","C","D", "E", "F","G","H"].include?(letter))
+      bool = true if !(["A","B","C","D", "E", "F","G","H", "I", "J"].include?(letter))
     end
     bool
   end
 
   def hash_making_of_string(skus)
-    hash = {"A"=> 0,"B"=> 0, "C"=> 0, "D"=> 0, "E"=>0 , "F" => 0, "G"=> 0 , "H" =>0, "I" => 35,
-    "J" => 60  }
+    hash = {"A"=> 0,"B"=> 0, "C"=> 0, "D"=> 0, "E"=>0 , "F" => 0, "G"=> 0 , "H" =>0, "I" => 35, "J" => 60  }
     skus.chars.each do |letter|
       hash[letter]+=1
     end
@@ -29,7 +28,8 @@ class Checkout
   def price_counting_of_hash(hash)
     price = item_A_price(hash) + normal_price(hash, "C",20) +
     normal_price(hash, "D",15) + normal_price(hash, "E",40) +
-    item_F_price(hash)+ item_B_price(hash) + normal_price(hash, "G", 20)+item_H_price(hash)+ normal_price(hash, "I",35) + normal_price(hash, "J", 60)
+    item_F_price(hash)+ item_B_price(hash) + normal_price(hash, "G", 20)+item_H_price(hash)
+     +  normal_price(hash, "I",35) + normal_price(hash, "J", 60)
 
     # hash.each do |item , time |
     #   # price += ((time/5)*200 + ((time%5)/3)*130 + (time - (time/5)*5 -(((time - (time/5)*5)/3)*3))*50) if item == "A"
@@ -73,6 +73,7 @@ class Checkout
     return (rep/10)*80 +(rep - (rep/10)*10)/5*45 + ((rep - (rep/10)*10)- ((rep - (rep/10)*10))/5*5)*10
   end
 end
+
 
 
 
