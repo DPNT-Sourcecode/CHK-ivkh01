@@ -42,12 +42,11 @@ class ClientTest < Minitest::Test
     assert_equal 160, Checkout.new.checkout("UUUUU")
     assert_equal 260, Checkout.new.checkout("VVVVVV")
     assert_equal 20, Checkout.new.checkout("W")
-    assert_equal 90, Checkout.new.checkout("X")
+    assert_equal 17, Checkout.new.checkout("X")
+    assert_equal 62, Checkout.new.checkout("XXXX")
     assert_equal 10, Checkout.new.checkout("Y")
     assert_equal 50, Checkout.new.checkout("Z")
     assert_equal 350, Checkout.new.checkout("VVVVVVVV")
     assert_equal 65, Checkout.new.checkout("TTTT")
   end
 end
-
-

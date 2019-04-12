@@ -33,7 +33,7 @@ class Checkout
     normal_price(hash, "L", 90)+ item_M_price(hash)+ normal_price(hash, "N", 40)+
     normal_price(hash, "O", 10)+ item_P_price(hash) + item_Q_price(hash) + normal_price(hash, "R", 50)+
     item_S_price(hash)+ item_T_price(hash)+ item_U_price(hash)+
-    item_V_price(hash) + normal_price(hash, "W", 20)+ normal_price(hash, "X", 90)+
+    item_V_price(hash) + normal_price(hash, "W", 20)+ item_X_price(hash)+
     normal_price(hash, "Y", 10)+ normal_price(hash, "Z", 50)
 
     # hash.each do |item , time |
@@ -135,6 +135,3 @@ class Checkout
 
 
 end
-
-
-
