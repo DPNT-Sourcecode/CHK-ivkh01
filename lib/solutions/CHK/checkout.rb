@@ -88,7 +88,7 @@ class Checkout
 
   def item_K_price(hash)
     rep = hash["K"]
-    return rep/2*150 +(rep -rep/2*2)*80
+    return rep/2*120 +(rep -rep/2*2)*70
   end
 
   def item_M_price(hash)
@@ -120,3 +120,4 @@ class Checkout
     return (rep/3)*130 +(rep - (rep/3)*3)/2*90 + ((rep - (rep/3)*3)- ((rep - (rep/3)*3))/2*2)*50
   end
 end
+
