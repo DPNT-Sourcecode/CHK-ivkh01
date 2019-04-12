@@ -12,7 +12,7 @@ class Checkout
     letters = skus.chars
     bool = false
     letters.each do |letter|
-      bool = true if !(["A","B","C","D", "E", "F","G","H", "I", "J", "K", "L", "M", "N","O", "P", "Q", "R", "S", "T", "U", "V"].include?(letter))
+      bool = true if !(["A","B","C","D", "E", "F","G","H", "I", "J", "K", "L", "M", "N","O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"].include?(letter))
     end
     bool
   end
@@ -114,10 +114,12 @@ class Checkout
 
   def item_V_price(hash)
     rep = hash["V"]
-    final = rep - rep/3*3- ((rep -rep/3*3)/2*2)
-    return (rep/3)*130 + (rep - rep/3*3)/2*90 + final*50
+    # final = rep - rep/3*3- ((rep -rep/3*3)/2*2)
+    # return (rep/3)*130 + (rep - rep/3*3)/2*90 + final*50
+    return (rep/3)*130 +(rep - (rep/3)*3)/2*90 + ((rep - (rep/3)*3)- ((rep - (rep/3)*3))/2*2)*50
   end
 end
+
 
 
 
