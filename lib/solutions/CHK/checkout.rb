@@ -31,7 +31,7 @@ class Checkout
     normal_price(hash, "D",15) + normal_price(hash, "E",40) +
     item_F_price(hash)+ item_B_price(hash) + normal_price(hash, "G", 20)+item_H_price(hash)+
     normal_price(hash, "I",35) +normal_price(hash, "J", 60)+ item_K_price(hash)+
-    normal_price(hash, "L", 90)+ normal_price(hash, "M", 15)+ normal_price(hash, "N", 40)
+    normal_price(hash, "L", 90)+ item_M_price(hash)+ normal_price(hash, "N", 40)
 
     # hash.each do |item , time |
     #   # price += ((time/5)*200 + ((time%5)/3)*130 + (time - (time/5)*5 -(((time - (time/5)*5)/3)*3))*50) if item == "A"
@@ -49,8 +49,8 @@ class Checkout
     hash["E"]
   end
 
-  def number_of_M(hash)
-    hash["M"]
+  def number_of_N(hash)
+    hash["N"]
   end
 
   def item_A_price(hash)
@@ -84,9 +84,13 @@ class Checkout
     return rep/2*150 +(rep -rep/2*2)*80
   end
 
-
-
+  def item_M_price(hash)
+    rep = hash["M"]
+    return (rep - number_of_N(hash)/3)*15 if rep > number_of_N(hash)/3
+    return 0
+  end
 
 end
+
 
 
