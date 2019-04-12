@@ -117,6 +117,7 @@ class Checkout
     rep = hash["V"]
     # final = rep - rep/3*3- ((rep -rep/3*3)/2*2)
     # return (rep/3)*130 + (rep - rep/3*3)/2*90 + final*50
-    return (rep/3)*130
+    return (rep/3)*130 +(rep - (rep/3)*3)/2*90 + ((rep - (rep/3)*3)- ((rep - (rep/3)*3))/2*2)*50
   end
 end
+
