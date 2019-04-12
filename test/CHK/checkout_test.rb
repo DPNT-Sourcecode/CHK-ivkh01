@@ -27,10 +27,10 @@ class ClientTest < Minitest::Test
     assert_equal 135, Checkout.new.checkout("HHHHHHHHHHHHHHHH")
     assert_equal 35, Checkout.new.checkout("I")
     assert_equal 60, Checkout.new.checkout("J")
-
-
+    assert_equal 230, Checkout.new.checkout("KKK")
   end
 end
+
 
 
 
